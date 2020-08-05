@@ -1,12 +1,10 @@
 package com.java.BusinessLogic;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import com.java.pageObjects.PageObjects_All;
-
-import net.bytebuddy.asm.Advice.Enter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -206,19 +204,34 @@ public class BusinessLogic_All extends PageObjects_All{
 
 	}
 
-	public void popup(WebDriver driver, String acceptOrRejectOrSendKeys) {
+	public void popup(WebDriver driver, String acceptOrRejectOrGetTextOrSendKeys) {
 
-		if(acceptOrRejectOrSendKeys.equalsIgnoreCase("accept")) {
+		if(acceptOrRejectOrGetTextOrSendKeys.equalsIgnoreCase("accept")) {
 			driver.switchTo().alert().accept();
 		}
-		else if(acceptOrRejectOrSendKeys.equalsIgnoreCase("reject")) {
+		else if(acceptOrRejectOrGetTextOrSendKeys.equalsIgnoreCase("reject")) {
 			driver.switchTo().alert().dismiss();
 		}
+		else if(acceptOrRejectOrGetTextOrSendKeys.equalsIgnoreCase("getText")) {
+
+			String alertMessage= driver.switchTo().alert().getText();		
+			// Displaying alert message		
+			System.out.println(alertMessage);				
+		}
+
 		else {
 
-			driver.switchTo().alert().sendKeys(acceptOrRejectOrSendKeys);
+			driver.switchTo().alert().sendKeys(acceptOrRejectOrGetTextOrSendKeys);
 		}
 
 	}
 
+
+	
+	
+	
+
+
 }
+
+
