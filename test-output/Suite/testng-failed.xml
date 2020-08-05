@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test thread-count="5" name="main(failed)">
+    <classes>
+      <class name="com.java.tests.TC_01_TestCase">
+        <methods>
+          <include name="tearDown"/>
+          <include name="BrowserSetup"/>
+          <include name="demomoo"/>
+        </methods>
+      </class> <!-- com.java.tests.TC_01_TestCase -->
+    </classes>
+  </test> <!-- main(failed) -->
+</suite> <!-- Failed suite [Suite] -->
